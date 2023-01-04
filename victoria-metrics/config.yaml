@@ -18,8 +18,8 @@ init: false
 map:
   - share:rw
 options:
-  retention: "99y"
+  retentionPeriod: "99y"
   additionalArguments: ""
 schema:
-  retention: "str?"
+  retentionPeriod: "str?"
   additionalArguments: "str?"
