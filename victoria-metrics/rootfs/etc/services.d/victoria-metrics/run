@@ -3,6 +3,7 @@ set -e
 
 STORAGE_DATA_PATH=$(bashio::config 'storageDataPath')
 RETENTION_PERIOD=$(bashio::config 'retentionPeriod')
+USE_PROMETHEUS_CONFIG=$(bashio::config 'usePrometheusConfig')
 ARGS=$(bashio::config 'additionalArguments')
 
 bashio::log.info "Starting Victoria Metrics with storage data path set to $STORAGE_DATA_PATH"
@@ -11,6 +12,12 @@ bashio::log.info "Starting Victoria Metrics with retention set to $RETENTION_PER
 if  [ ! -z "$ARGS" ]
 then
   bashio::log.info "Starting Victoria Metrics with args set to $ARGS"
-
 fi
+
+if  [ "$USE_PROMETHEUS_CONFIG" = true ]
+then
+  ARGS="${ARGS} -promscrape.config /prometheus.yml"
+  bashio::log.info "Starting Victoria Metrics with prometheus scraper"
+fi
+
 exec /victoria-metrics-prod -storageDataPath $STORAGE_DATA_PATH -retentionPeriod $RETENTION_PERIOD $ARGS

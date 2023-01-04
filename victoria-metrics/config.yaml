@@ -20,8 +20,10 @@ map:
 options:
   storageDataPath: "/share/victoria-metrics-data"
   retentionPeriod: "99y"
+  usePrometheusConfig: False
   additionalArguments: ""
 schema:
   storageDataPath: "str?"
   retentionPeriod: "str?"
+  usePrometheusConfig: bool
   additionalArguments: "str?"

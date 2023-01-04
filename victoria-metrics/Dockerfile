@@ -1,9 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Copy data for add-on
-COPY rootfs /
-COPY prometheus.yml /
 ARG VERSION=v1.83.1
 
 RUN /bin/bash -c 'set -ex && \
@@ -19,10 +16,6 @@ RUN /bin/bash -c 'set -ex && \
        return -1; \
     fi'
 
-RUN chmod a+x /victoria-metrics-prod
-
-# Run service with prometheus scraper
-# CMD [ "/victoria-metrics-prod", "-storageDataPath", "/data", "-promscrape.config", "/prometheus.yml"]
-
-# Run service without prometheus scraper
-#CMD [ "/victoria-metrics-prod", "-storageDataPath", "/share/victoria-metrics-data"]
+# Copy data for add-on
+COPY rootfs /
+COPY prometheus.yml /
