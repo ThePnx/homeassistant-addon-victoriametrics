@@ -4,7 +4,6 @@ FROM $BUILD_FROM
 # Copy data for add-on
 COPY rootfs /
 COPY prometheus.yml /
-WORKDIR /share/victoria-metrics-data
 ARG VERSION=v1.83.1
 
 RUN /bin/bash -c 'set -ex && \

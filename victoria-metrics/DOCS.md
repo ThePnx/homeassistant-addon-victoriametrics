@@ -14,8 +14,8 @@
 
 
 ## Data Storage
-VictoriaMetrtics Data is stored in folder /share/victoria-metrics-data of Home Assistant OS to make individual backups easy.
-
+By default VictoriaMetrtics Data is stored in folder /share/victoria-metrics-data of Home Assistant OS to make individual backups easy.
+To change the path, modify `storageDataPath` option in `config.yml`
 
 ## Configuration
 

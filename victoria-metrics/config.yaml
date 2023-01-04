@@ -18,8 +18,10 @@ init: false
 map:
   - share:rw
 options:
+  storageDataPath: "/share/victoria-metrics-data"
   retentionPeriod: "99y"
   additionalArguments: ""
 schema:
+  storageDataPath: "str?"
   retentionPeriod: "str?"
   additionalArguments: "str?"
